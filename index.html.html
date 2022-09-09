@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PÓS VENDAS</title>
+    <script src="./Jeep Renegade_files/jquery.js"></script>
+    <script src="./Jeep Renegade_files/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./Jeep Renegade_files/flipbook.style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      .flipbook-main-wrapper {
+        background: url("./images/fundo_bg.jpg") !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+      }
+    </style>
+    <script src="./Jeep Renegade_files/flipbook.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("#container").flipBook({
+          pdfUrl: "renegade5.pdf",
+          skin: "dark",
+          btnSize: 20,
+          backgroundColor: "#ffffff",
+          zoomMin: 0.9,
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="container"></div>
+  </body>
+</html>
