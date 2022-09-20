@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cátalogo de acessórios Defender</title>
+
+    <link rel="stylesheet" type="text/css" href="./assets/flipbook.style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="./assets/jquery.js"></script>
+    <script src="./assets/jquery-ui.min.js"></script>
+
+    <style>
+      .flipbook-main-wrapper {
+        background: url("./images/fundo_bg.jpg") !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <div id="container"></div>
+  </body>
+
+  <script src="./assets/flipbook.min.js"></script>
+  <script type="text/javascript">
+    const pdfFile = "pdf/JAGUAR/E_PACE.pdf";
+    $(document).ready(function () {
+      $("#container").flipBook({
+        pdfUrl: pdfFile,
+        skin: "dark",
+        btnSize: 20,
+        backgroundColor: "#ffffff",
+        zoomMin: 0.9,
+      });
+    });
+  </script>
+</html>
