@@ -1,46 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cátalogo de acessórios</title>
 
-    <link rel="stylesheet" type="text/css" href="./assets/flipbook.style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
-      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <script src="./assets/jquery.js"></script>
-    <script src="./assets/jquery-ui.min.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cátalogo de acessórios</title>
 
-    <style>
-      .flipbook-main-wrapper {
-        background: url("./images/fundo_bg.jpg") !important;
-        background-repeat: no-repeat !important;
-        background-size: cover !important;
+  <link rel="stylesheet" type="text/css" href="./assets/flipbook.style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="./assets/jquery.js"></script>
+  <script src="./assets/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+  <style>
+    .flipbook-main-wrapper {
+      background: url("./images/fundo_bg.jpg") !important;
+      background-repeat: no-repeat !important;
+      background-size: cover !important;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container"></div>
+</body>
+
+<script src="./assets/flipbook.min.js"></script>
+<script type="text/javascript">
+  const pdfFile = "pdf/LAND/TESTE.pdf";
+  const chamarFuncao = (i) => {
+    const next = document.querySelector('.fa.flipbook-right-arrow');
+    const prev = document.querySelector('.fa.flipbook-left-arrow');
+
+    if (prev && next) {
+      next.addEventListener('click', (e) => {
+        getLinks();
+      })
+    }
+  }
+
+  const getLinks = (e) => {
+    let links = document.querySelectorAll('a');
+
+    if (links.length > 0) {
+      for (let i = 0; i < links.length; i++) {
+
+        if (links[i].href.split('/').indexOf('img') > 1) {
+          links[i].dataset.fancybox = "gallery";
+        }
       }
-    </style>
-  </head>
-  
-  <body>
-    <div id="container"></div>
-  </body>
 
-  <script src="./assets/flipbook.min.js"></script>
-  <script type="text/javascript">
-    const pdfFile = "pdf/LAND/CATALOGO_ACESSORIOS_DEFENDER.pdf";
-    $(document).ready(function () {
-      $("#container").flipBook({
-        pdfUrl: pdfFile,
-        skin: "dark",
-        btnSize: 20,
-        backgroundColor: "#ffffff",
-        zoomMin: 0.9,
-      });
-    });
-  </script>
+      fancyCreate();
+    }
+  }
+
+  const fancyCreate = () => {
+    Fancybox.destroy();
+
+    Fancybox.bind('[data-fancybox="gallery"]');
+  }
+
+  $("#container").flipBook({
+    pdfUrl: pdfFile,
+    skin: "dark",
+    btnSize: 20,
+    backgroundColor: "#ffffff",
+    assets: {
+      spinner: './spinner.svg'
+    },
+    zoomMin: 1,
+    singlePageMode: 1,
+    btnSearch: 0,
+    btnSelect: 0,
+    btnBookmark: 0,
+    btnShare: 0,
+    btnPrint: 0,
+    btnDownloadPages: 0,
+    btnDownloadPdf: 0,
+    btnSound: 0,
+    btnToc: 0,
+    btnThumbs: 0,
+    sound: 0,
+  })
+
+</script>
+
+
 </html>
